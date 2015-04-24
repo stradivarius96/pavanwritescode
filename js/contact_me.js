@@ -1,4 +1,4 @@
-var sendgrid  = require('sendgrid')(process.env.api_user, process.env.api_key);
+//var sendgrid  = require('sendgrid')(process.env.api_user, process.env.api_key);
 
 $(function() {
 
@@ -23,8 +23,7 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
 
-
-sendgrid.send( {
+/*sendgrid.send( {
     from: 'Matt Pavan <noreply@pavanwritescode.com>', // sender address
     to: 'matthew.pavan@gmail.com', // list of receivers
     subject: 'PavanWritesCode.com email message', // Subject line
@@ -34,7 +33,7 @@ sendgrid.send( {
   if (err) { return console.error(err); }
   console.log(json);
 });
-
+*/
 /*
 // NB! No need to recreate the transporter object. You can use
 // the same transporter object for all e-mails
