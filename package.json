@@ -25,11 +25,7 @@
   },
 
   "dependencies": {
-    "ejs": "^1.0.0",
-    "nodemon": "^1.2.1",
-    "express": "^4.10.4",
-    "html": "^0.0.7",
-    "nodemailer": "~0.7.1"
+    "express": "~3.4.4"
   },
   "devDependencies": {},
   "bundleDependencies": [],
