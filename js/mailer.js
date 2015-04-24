@@ -6,11 +6,10 @@ $(function(){
         text=$("#message").val();
         $("#message").text("Sending E-mail...Please wait");
         $.get("/send",{to:to,subject:subject,text:text},function(data){
-        if(data=="sent")
-        {
-            console.log('success');
-        }
-
-});
+            if(data=="sent")
+            {
+                console.log('success');
+            }
+        });
     });
 });
