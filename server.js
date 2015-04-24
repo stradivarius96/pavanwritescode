@@ -35,6 +35,10 @@ res.end("sent");
 });
 });
 
+app.listen(3000,function(){
+console.log("Express Started on Port 3000");
+});
+
 /**
  *  Define the sample application.
  */
