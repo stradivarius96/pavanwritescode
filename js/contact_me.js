@@ -21,16 +21,7 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
 
-            var nodemailer = require('nodemailer');
-
-            // create reusable transporter object using SMTP transport
-            var transporter = nodemailer.createTransport({
-                service: 'Gmail',
-                auth: {
-                    user: 'matthew.pavan@gmail.com',
-                    pass: 'Letmein1234%'
-                }
-            });
+            
 
 // NB! No need to recreate the transporter object. You can use
 // the same transporter object for all e-mails

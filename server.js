@@ -3,7 +3,16 @@
 var express = require('express');
 var fs      = require('fs');
 
+var nodemailer = require('nodemailer');
 
+            // create reusable transporter object using SMTP transport
+            var transporter = nodemailer.createTransport({
+                service: 'Gmail',
+                auth: {
+                    user: 'matthew.pavan@gmail.com',
+                    pass: 'Letmein1234%'
+                }
+            });
 
 /**
  *  Define the sample application.
