@@ -115,6 +115,9 @@ var SampleApp = function() {
         self.createRoutes();
         self.app = express.createServer();
 
+        ['css', 'img', 'js', 'plugin', 'lib'].forEach(function (dir){
+                self.app.use('/'+dir, express.static(__dirname+'/'+dir));
+            });
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
             self.app.get(r, self.routes[r]);
