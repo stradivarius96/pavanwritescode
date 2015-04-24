@@ -1,3 +1,5 @@
+var sendgrid  = require('sendgrid')(process.env.api_user, process.env.api_key);
+
 $(function() {
 
     $("input,textarea").jqBootstrapValidation({
@@ -21,8 +23,19 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
 
-            
 
+sendgrid.send( {
+    from: 'Matt Pavan <noreply@pavanwritescode.com>', // sender address
+    to: 'matthew.pavan@gmail.com', // list of receivers
+    subject: 'PavanWritesCode.com email message', // Subject line
+    text: name + ' ' + phone + ' ' + email + ' ' + message, // plaintext body
+    //html: '' // html body
+}, function(err, json) {
+  if (err) { return console.error(err); }
+  console.log(json);
+});
+
+/*
 // NB! No need to recreate the transporter object. You can use
 // the same transporter object for all e-mails
 
@@ -43,7 +56,7 @@ transporter.sendMail(mailOptions, function(error, info){
         console.log('Message sent: ' + info.response);
     }
 });
-
+*/
 
 
 
