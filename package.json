@@ -9,11 +9,11 @@
     "openshift"
   ],
   "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url": "http://www.openshift.com/"
+    "name": "Matthew Pavan",
+    "email": "matthew.pavan@gmail.com",
+    "url": "http://www.pavanwritescode.com/"
   },
-  "homepage": "http://www.openshift.com/",
+  "homepage": "http://www.pavanwritescode.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/openshift/origin-server"
