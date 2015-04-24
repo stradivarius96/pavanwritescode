@@ -2,7 +2,15 @@
 //  OpenShift sample Node application
 var express = require('express');
 var fs      = require('fs');
-//var nodemailer = require('nodemailer');
+var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
+
+var transporter = nodemailer.createTransport(smtpTransport({
+  service: 'Gmail',
+  auth: { user: 'matthew.pavan@gmail.com',
+  pass: 'Letmein1234%' }
+}));
+
 
 // create reusable transporter object using SMTP transport
 
@@ -63,12 +71,12 @@ var fs      = require('fs');
      */
      self.terminator = function(sig){
         if (typeof sig === "string") {
-         console.log('%s: Received %s - terminating sample app ...',
-             Date(Date.now()), sig);
-         process.exit(1);
-     }
-     console.log('%s: Node server stopped.', Date(Date.now()) );
- };
+           console.log('%s: Received %s - terminating sample app ...',
+               Date(Date.now()), sig);
+           process.exit(1);
+       }
+       console.log('%s: Node server stopped.', Date(Date.now()) );
+   };
 
 
     /**
