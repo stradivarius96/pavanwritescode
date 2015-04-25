@@ -147,7 +147,7 @@ sendgrid.send(email);*/
         email.addTo("matthew.pavan@gmail.com");
         email.setFrom("noreply@pavanwritescode.com");
         email.setSubject("Form Submission from PavanWritesCode.com");
-        email.setHtml("and easy to do anywhere, even with Node.js" + params.toString());
+        email.setHtml("and easy to do anywhere, even with Node.js" + JSON.stringify(params);
 
         sendgrid.send(email);
     }
