@@ -2,8 +2,8 @@
 //  OpenShift sample Node application
 var express = require('express');
 var fs      = require('fs');
-/*var nodemailer = require('nodemailer');
-var smtpTransport = require('nodemailer-smtp-transport');
+var nodemailer = require('nodemailer');
+/*var smtpTransport = require('nodemailer-smtp-transport');
 
 var transporter = nodemailer.createTransport(smtpTransport({
   service: 'Gmail',
