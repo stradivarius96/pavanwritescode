@@ -2,7 +2,7 @@
 //  OpenShift sample Node application
 var express = require('express');
 var fs      = require('fs');
-var sendgrid = require('sendgrid')(api_user, api_key);
+var sendgrid = require('sendgrid')("stradivarius96", "Letmein12345");
 var email = new sendgrid.Email();
 
 email.addTo("matthew.pavan@gmail.com");
