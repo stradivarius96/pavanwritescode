@@ -3,14 +3,14 @@
 var express = require('express');
 var fs      = require('fs');
 var sendgrid = require('sendgrid')("stradivarius96", "Letmein12345");
-var email = new sendgrid.Email();
+/*var email = new sendgrid.Email();
 
 email.addTo("matthew.pavan@gmail.com");
 email.setFrom("noreply@pavanwritescode.com");
 email.setSubject("Sending with SendGrid is Fun");
 email.setHtml("and easy to do anywhere, even with Node.js");
 
-sendgrid.send(email);
+sendgrid.send(email);*/
 /*var smtpTransport = require('nodemailer-smtp-transport');
 
 var transporter = nodemailer.createTransport(smtpTransport({
@@ -123,6 +123,16 @@ var transporter = nodemailer.createTransport(smtpTransport({
             res.send(self.cache_get('index.html') );
         };
 
+        self.routes['/send'] = fuction(req, res){
+            var email = new sendgrid.Email();
+
+            email.addTo("matthew.pavan@gmail.com");
+            email.setFrom("noreply@pavanwritescode.com");
+            email.setSubject("Routes worked!");
+            email.setHtml("I dont know how to see the data yet");
+
+            sendgrid.send(email);
+        };
 
     };
 

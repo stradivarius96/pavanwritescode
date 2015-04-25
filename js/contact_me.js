@@ -23,6 +23,8 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
 
+
+
 /*sendgrid.send( {
     from: 'Matt Pavan <noreply@pavanwritescode.com>', // sender address
     to: 'matthew.pavan@gmail.com', // list of receivers
@@ -60,9 +62,9 @@ transporter.sendMail(mailOptions, function(error, info){
 
 
 
-/*
+
 $.ajax({
-    url: "././js/emailer.js",
+    url: "./send",
     type: "POST",
     data: {
         name: name,
@@ -95,7 +97,7 @@ $.ajax({
                     //clear all fields
                     $('#contactForm').trigger("reset");
                 },
-            })*/
+            })
 },
 filter: function() {
     return $(this).is(":visible");
