@@ -119,7 +119,7 @@ sendgrid.send(email);*/
         self.routes['/send'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
-            self.sendEmail();
+            self.sendEmail(req.params);
         };
     };
 
@@ -141,15 +141,15 @@ sendgrid.send(email);*/
         }
     };
 
-    self.sendEmail = function(){
+    self.sendEmail = function(params){
         var email = new sendgrid.Email();
 
-email.addTo("matthew.pavan@gmail.com");
-email.setFrom("noreply@pavanwritescode.com");
-email.setSubject("Sending with SendGrid is Fun");
-email.setHtml("and easy to do anywhere, even with Node.js");
+        email.addTo("matthew.pavan@gmail.com");
+        email.setFrom("noreply@pavanwritescode.com");
+        email.setSubject("Form Submission from PavanWritesCode.com");
+        email.setHtml("and easy to do anywhere, even with Node.js" + params);
 
-sendgrid.send(email);
+        sendgrid.send(email);
     }
     /**
      *  Initializes the sample application.
