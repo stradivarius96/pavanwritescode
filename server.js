@@ -122,21 +122,6 @@ var transporter = nodemailer.createTransport(smtpTransport({
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
         };
-
-    self.routes['/send'] = fuction(req, res){
-  /*          var email = new sendgrid.Email();
-
-            email.addTo("matthew.pavan@gmail.com");
-            email.setFrom("noreply@pavanwritescode.com");
-            email.setSubject("Routes worked!");
-            email.setHtml("I dont know how to see the data yet");
-
-            sendgrid.send(email);
-*/
-            res.send("200");
-        
-        };
-
     };
 
 
