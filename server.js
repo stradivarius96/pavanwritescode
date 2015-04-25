@@ -11,16 +11,8 @@ email.setSubject("Sending with SendGrid is Fun");
 email.setHtml("and easy to do anywhere, even with Node.js");
 
 sendgrid.send(email);*/
-/*var smtpTransport = require('nodemailer-smtp-transport');
-
-var transporter = nodemailer.createTransport(smtpTransport({
-  service: 'Gmail',
-  auth: { user: 'matthew.pavan@gmail.com',
-  pass: 'Letmein1234%' }
-}));*/
 
 
-// create reusable transporter object using SMTP transport
 
 /**
  *  Define the sample application.

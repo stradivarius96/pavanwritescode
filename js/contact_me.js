@@ -65,7 +65,7 @@ transporter.sendMail(mailOptions, function(error, info){
 
 $.ajax({
     url: "./send",
-    type: "POST",
+    type: "GET",
     data: {
         name: name,
         phone: phone,
