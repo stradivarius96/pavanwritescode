@@ -119,7 +119,7 @@ sendgrid.send(email);*/
         self.routes['/send'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
-            self.sendEmail(req.params);
+            self.sendEmail(req.data);
         };
     };
 
