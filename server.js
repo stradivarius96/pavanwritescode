@@ -142,7 +142,14 @@ sendgrid.send(email);*/
     };
 
     self.sendEmail = function(){
+        var email = new sendgrid.Email();
 
+email.addTo("matthew.pavan@gmail.com");
+email.setFrom("noreply@pavanwritescode.com");
+email.setSubject("Sending with SendGrid is Fun");
+email.setHtml("and easy to do anywhere, even with Node.js");
+
+sendgrid.send(email);
     }
     /**
      *  Initializes the sample application.
