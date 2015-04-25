@@ -2,7 +2,15 @@
 //  OpenShift sample Node application
 var express = require('express');
 var fs      = require('fs');
-var sendgrid = require('sendgrid');
+var sendgrid = require('sendgrid')(api_user, api_key);
+var email = new sendgrid.Email();
+
+email.addTo("matthew.pavan@gmail.com");
+email.setFrom("noreply@pavanwritescode.com");
+email.setSubject("Sending with SendGrid is Fun");
+email.setHtml("and easy to do anywhere, even with Node.js");
+
+sendgrid.send(email);
 /*var smtpTransport = require('nodemailer-smtp-transport');
 
 var transporter = nodemailer.createTransport(smtpTransport({
