@@ -60,18 +60,20 @@ transporter.sendMail(mailOptions, function(error, info){
 */
 
 
+data = { };
+
+data.name = name;
+data.phone = phone;
+data.email = email;
+data.message = message;
 
 
 
 $.ajax({
     url: "./send",
     type: "POST",
-    data: {
-        name: name,
-        phone: phone,
-        email: email,
-        message: message
-    },
+    data: JSON.stringify(data),
+    contentType: 'application/json',
     cache: false,
     success: function() {
                     // Enable button & show success message

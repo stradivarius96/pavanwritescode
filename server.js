@@ -120,7 +120,7 @@ sendgrid.send(email);*/
         self.routesPost['/send'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
-            self.sendEmail(req.body);
+            self.sendEmail(JSON.stringify(req.body));
         };
     };
 
@@ -132,6 +132,7 @@ sendgrid.send(email);*/
      self.initializeServer = function() {
         self.createRoutes();
         self.app = express.createServer();
+        self.app.use(express.bodyParser());
 
         ['css', 'img', 'js', 'plugin', 'lib', 'less' , 'mail', 'fonts', 'font-awesome'].forEach(function (dir){
             self.app.use('/'+dir, express.static(__dirname+'/'+dir));
