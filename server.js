@@ -2,6 +2,7 @@
 //  OpenShift sample Node application
 var express = require('express');
 var fs      = require('fs');
+var util = require("util");
 var sendgrid = require('sendgrid')("stradivarius96", "Letmein12345");
 /*var email = new sendgrid.Email();
 
@@ -151,7 +152,7 @@ sendgrid.send(email);*/
         email.addTo("matthew.pavan@gmail.com");
         email.setFrom("noreply@pavanwritescode.com");
         email.setSubject("Form Submission from PavanWritesCode.com");
-        email.setHtml("and easy to do anywhere, even with Node.js" + params.data);
+        email.setHtml("and easy to do anywhere, even with Node.js" + util.inspect(params,false,null));
 
         sendgrid.send(email);
     }
