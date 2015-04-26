@@ -24,58 +24,19 @@ $(function() {
             }
 
 
+            data = { };
+            data.name = name;
+            data.phone = phone;
+            data.email = email;
+            data.message = message;
 
-/*sendgrid.send( {
-    from: 'Matt Pavan <noreply@pavanwritescode.com>', // sender address
-    to: 'matthew.pavan@gmail.com', // list of receivers
-    subject: 'PavanWritesCode.com email message', // Subject line
-    text: name + ' ' + phone + ' ' + email + ' ' + message, // plaintext body
-    //html: '' // html body
-}, function(err, json) {
-  if (err) { return console.error(err); }
-  console.log(json);
-});
-*/
-/*
-// NB! No need to recreate the transporter object. You can use
-// the same transporter object for all e-mails
-
-// setup e-mail data with unicode symbols
-var mailOptions = {
-    from: 'Matt Pavan <noreply@pavanwritescode.com>', // sender address
-    to: 'matthew.pavan@gmail.com', // list of receivers
-    subject: 'PavanWritesCode.com email message', // Subject line
-    text: name + ' ' + phone + ' ' + email + ' ' + message, // plaintext body
-    html: '' // html body
-};
-
-// send mail with defined transport object
-transporter.sendMail(mailOptions, function(error, info){
-    if(error){
-        console.log(error);
-    }else{
-        console.log('Message sent: ' + info.response);
-    }
-});
-*/
-
-
-data = { };
-
-data.name = name;
-data.phone = phone;
-data.email = email;
-data.message = message;
-
-
-
-$.ajax({
-    url: "./send",
-    type: "POST",
-    data: JSON.stringify(data),
-    contentType: 'application/json',
-    cache: false,
-    success: function() {
+            $.ajax({
+                url: "./send",
+                type: "POST",
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                cache: false,
+                success: function() {
                     // Enable button & show success message
                     $("#btnSubmit").attr("disabled", false);
                     $('#success').html("<div class='alert alert-success'>");

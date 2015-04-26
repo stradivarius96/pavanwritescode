@@ -4,16 +4,6 @@ var express = require('express');
 var fs      = require('fs');
 var util = require("util");
 var sendgrid = require('sendgrid')("stradivarius96", "Letmein12345");
-/*var email = new sendgrid.Email();
-
-email.addTo("matthew.pavan@gmail.com");
-email.setFrom("noreply@pavanwritescode.com");
-email.setSubject("Sending with SendGrid is Fun");
-email.setHtml("and easy to do anywhere, even with Node.js");
-
-sendgrid.send(email);*/
-
-
 
 /**
  *  Define the sample application.
@@ -153,7 +143,7 @@ sendgrid.send(email);*/
         email.addTo("matthew.pavan@gmail.com");
         email.setFrom("noreply@pavanwritescode.com");
         email.setSubject("Form Submission from PavanWritesCode.com");
-        email.setHtml("and easy to do anywhere, even with Node.js" + util.inspect(params,false,null));
+        email.setHtml(util.inspect(params,false,null));
 
         sendgrid.send(email);
     }
