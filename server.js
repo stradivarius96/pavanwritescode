@@ -104,7 +104,7 @@ sendgrid.send(email);*/
      */
      self.createRoutes = function() {
         self.routes = { };
-
+        self.routesPost = { };
         self.routes['/asciimo'] = function(req, res) {
             var link = "http://i.imgur.com/kmbjB.png";
             res.send("<html><body><img src='" + link + "'></body></html>");
@@ -116,7 +116,7 @@ sendgrid.send(email);*/
         };
 
 
-        self.routes['/send'] = function(req, res) {
+        self.routesPost['/send'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
             self.sendEmail(req);
@@ -138,6 +138,10 @@ sendgrid.send(email);*/
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
             self.app.get(r, self.routes[r]);
+        }
+
+        for (var r in self.routesPost) {
+            self.app.post(r, self.routesPost[r]);
         }
     };
 
