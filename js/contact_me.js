@@ -31,7 +31,7 @@ $(function() {
             data.message = message;
 
             $.ajax({
-                url: "./send",
+                url: "https://nh001dlhkl.execute-api.us-east-1.amazonaws.com/Prod/send",
                 type: "POST",
                 data: JSON.stringify(data),
                 contentType: 'application/json',

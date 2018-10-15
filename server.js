@@ -3,7 +3,10 @@
 var express = require('express');
 var fs      = require('fs');
 var util = require("util");
-var sendgrid = require('sendgrid')("stradivarius96", "Letmein12345");
+require('dotenv').config();
+const AWS = require('aws-sdk');
+
+const ses = new AWS.SES()
 
 /**
  *  Define the sample application.
@@ -138,15 +141,55 @@ var sendgrid = require('sendgrid')("stradivarius96", "Letmein12345");
     };
 
     self.sendEmail = function(params){
-        var email = new sendgrid.Email();
 
-        email.addTo("matthew.pavan@gmail.com");
-        email.setFrom("noreply@pavanwritescode.com");
-        email.setSubject("Form Submission from PavanWritesCode.com");
-        email.setHtml(util.inspect(params,false,null));
 
-        sendgrid.send(email);
+console.log(params);
+
+var emailParams = {
+  Destination: {
+    ToAddresses: ['matthew.pavan@gmail.com']
+  },
+  Message: {
+    Body: {
+      Html: {
+        Charset: 'UTF-8',
+        Data:
+          util.inspect(params,false,null)
+      },
+      Text: {
+        Charset: 'UTF-8',
+        Data: 'This is the message body in text format.'
+      }
+    },
+    Subject: {
+      Charset: 'UTF-8',
+      Data: 'Fform submission from PavanWritesCode.com'
     }
+  },
+  ReturnPath: 'matthew.pavan@gmail.com',
+  Source: 'matthew.pavan@gmail.com'
+}
+
+ses.sendEmail(emailParams, (err, data) => {
+  if (err) console.log(err, err.stack)
+  else console.log(data)
+})
+
+
+
+
+
+        // var email = new sendgrid.Email();
+
+
+
+    //     email.addTo("matthew.pavan@gmail.com");
+    //     email.setFrom("noreply@pavanwritescode.com");
+    //     email.setSubject("Form Submission from PavanWritesCode.com");
+    //     email.setHtml(util.inspect(params,false,null));
+
+    //     sendgrid.send(email);
+     }
     /**
      *  Initializes the sample application.
      */
